@@ -46,10 +46,10 @@
 * **V1/V2 签名闭环整合**：集成标准的 APK 签名算法体系，兼容 Android 7.0 至 14 的签名校验要求。
 * **4 字节对齐（ZipAlign）**：对 SO 库、资源文件进行严格的 4 字节（32-bit）及内存映射对齐，保障应用在真机上快速加载、内存利用率最高。
 
-## 7. 超激进反逆向对抗陷阱
-- Win32 保留设备名陷阱：注入 aux.dat、con.dat、prn.dat、nul.dat，使逆向人员在 Windows 下解包（Apktool、WinRAR、7-Zip）时触发系统级拒绝写入错误（ERROR_INVALID_NAME）；
-- 畸变诱饵 DEX 陷阱：伪造 DEX 头但注入巨大越界指针，使 JADX、Ghidra 等静态分析工具解析时直接触发 OOM 或异常崩溃；
-- 超长文件名与千层塔嵌套：突破 Windows 260 字节 MAX_PATH 限制，使递归遍历反编译器爆栈。
+### 7. 超激进反逆向对抗陷阱
+* **Win32 保留设备名陷阱**：注入 aux.dat、con.dat、prn.dat、nul.dat，使逆向人员在 Windows 下解包（Apktool、WinRAR、7-Zip）时触发系统级拒绝写入错误（ERROR_INVALID_NAME）；
+* **畸变诱饵 DEX 陷阱**：伪造 DEX 头但注入巨大越界指针，使 JADX、Ghidra 等静态分析工具解析时直接触发 OOM 或异常崩溃；
+* **超长文件名与千层塔嵌套**：突破 Windows 260 字节 MAX_PATH 限制，使递归遍历反编译器爆栈。
 ---
 
 ## 三、 管理平台操作与配置（Web 控制台）
